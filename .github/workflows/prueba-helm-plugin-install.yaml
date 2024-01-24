@@ -9,11 +9,6 @@ jobs:
     steps:
       - name: Clonar repositorio
         uses: actions/checkout@v3
-
-      - name: Instalar sops
-        run: |
-          wget -O /home/runner/bin/sops https://github.com/getsops/sops/releases/download/v3.8.1/sops-v3.8.1.linux.amd64
-          chmod +x /home/runner/bin/sops
       
       - name: Instalar helmfile
         uses: mamezou-tech/setup-helmfile@v1.3.0
@@ -21,6 +16,11 @@ jobs:
           helmfile-version: v0.159.0
           helm-version: v3.13.3
           additional-helm-plugins: https://github.com/jkroepke/helm-secrets --version v4.5.1
+
+      - name: Instalar sops
+        run: |
+          wget -O /home/runner/bin/sops https://github.com/getsops/sops/releases/download/v3.8.1/sops-v3.8.1.linux.amd64
+          chmod +x /home/runner/bin/sops
       
       - name: Test instalaciones
         run: |
