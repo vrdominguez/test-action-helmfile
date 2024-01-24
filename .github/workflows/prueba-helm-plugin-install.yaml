@@ -14,7 +14,7 @@ jobs:
         uses: mamezou-tech/setup-helmfile@v1.3.0
         with:
           helmfile-version: v0.159.0
-          helm-version: v1.13.3
+          helm-version: v3.13.3
 
       - name: Test instalaciones
         run:
