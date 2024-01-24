@@ -1,0 +1,23 @@
+name: Prueba instalador helm
+
+on:
+  workflow_call:
+
+jobs:
+  instalar-helm:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v3
+      
+      - name: Instalar helmfile
+        uses: mamezou-tech/setup-helmfile@v1.3.0
+        with:
+          helmfile-version:
+          helm-version: 1.13.3
+
+      - name: Test instalaciones
+        run:
+          kubectl version --client
+          helm version
+          helmfile --version
