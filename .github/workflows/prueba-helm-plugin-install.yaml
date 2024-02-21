@@ -34,5 +34,3 @@ jobs:
           helm secrets -v
           echo "Version de sops"
           sops --version
-          echo "Vamos a hacer fallar esto para una prueba"
-          dsadsadsad -dsadsa
